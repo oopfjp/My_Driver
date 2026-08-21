@@ -1,0 +1,28 @@
+import("//build/ohos.gni")
+import("//drivers/hdf_core/adapter/uhdf2/hdi.gni")
+
+ohos_shared_library("mytest_driver") {
+    sources = [
+        "mytest_driver.cpp",
+        "mytest_impl.cpp",
+    ]
+    shlib_type = "hdi"
+    install_enable = true
+    install_images = ["vendor"]
+    deps = [
+        "//drivers/interface/mytest/v1_0:libmytest_stub_1.0",
+    ]
+
+    external_deps = [
+        "c_utils:utils",
+        "hdf_core:libhdf_host",
+        "hdf_core:libhdf_ipc_adapter",
+        "hdf_core:libhdf_utils",
+        "hilog:libhilog",
+        "hdf_core:libhdi",       
+        "ipc:ipc_single",
+    ]
+
+    subsystem_name = "hdf"
+    part_name = "drivers_peripheral_mytest"
+}

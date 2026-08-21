@@ -1,0 +1,32 @@
+{
+  "name": "@ohos/drivers_peripheral_mytest",
+  "description": "mytest peripheral component",
+  "version": "3.2",
+  "license": "Apache License 2.0",
+  "publishAs": "code-segment",
+  "segment": {
+    "destPath": "drivers/peripheral/mytest"
+  },
+  "component": {
+    "name": "drivers_peripheral_mytest",
+    "subsystem": "hdf",
+    "syscap": [],
+    "features": [],
+    "adapted_system_type": [ "standard" ],
+    "rom": "",
+    "ram": "",
+    "deps": {
+      "components": [
+        "drivers_interface_mytest"
+      ],
+      "third_party": []
+    },
+    "build": {
+      "sub_component": [
+        "//drivers/peripheral/mytest/hdi_service:mytest_driver"
+      ],
+      "inner_kits": [],
+      "test": []
+    }
+  }
+}

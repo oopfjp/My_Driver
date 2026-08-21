@@ -1,0 +1,14 @@
+import("//drivers/hdf_core/adapter/uhdf2/hdi.gni")
+import("//build/ohos.gni")
+
+
+hdi("mytest"){
+
+    module_name = "mytest"
+    sources = [
+        "IMyTest.idl",
+    ]
+    language = "cpp"
+    subsystem_name = "hdf"
+    part_name = "drivers_interface_mytest"
+}
