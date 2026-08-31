@@ -3,4 +3,5 @@ package ohos.hdi.mytest.v1_0;
 interface IMyTest{
 
     SetGpioLevel([in] int level);
+    RebootSystem();
 }

@@ -5,13 +5,14 @@
 
 namespace OHOS {
 namespace HDI {
-namespace Mytest { // 🚨注意：这里的 t 必须是小写！与 IDL 包名保持一致
+namespace Mytest { 
 namespace V1_0 {
 
 class MyTestImpl : public IMyTest {
 public:
     virtual ~MyTestImpl() {}
     int32_t SetGpioLevel(int32_t level) override;
+    int32_t RebootSystem() override;
 };
 
 } // V1_0

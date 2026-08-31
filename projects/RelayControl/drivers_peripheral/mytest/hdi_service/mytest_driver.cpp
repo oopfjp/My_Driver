@@ -3,12 +3,11 @@
 #include <hdf_log.h>
 #include <hdf_sbuf_ipc.h>
 
-// 🚨 必须同时包含这三个头文件，缺一不可！
+
 #include "v1_0/imy_test.h"      // 系统生成的接口定义 (提供 IMyTest)
 #include "v1_0/my_test_stub.h"  // 系统生成的服务端存根
 #include "mytest_impl.h"        // 你自己写的实现类 (提供 MyTestImpl)
 
-// 不用 using namespace，彻底杜绝大小写找不到的问题！
 
 struct HdfMyTestHost {
     struct IDeviceIoService ioService;
@@ -44,7 +43,7 @@ static int HdfMyTestDriverBind(struct HdfDeviceObject *deviceObject)
     hdfMyTestHost->ioService.Open = NULL;
     hdfMyTestHost->ioService.Release = NULL;
 
-    // 🚨 终极大法：全部使用完整的绝对命名空间路径，彻底消灭歧义！
+   
     OHOS::sptr<OHOS::HDI::Mytest::V1_0::IMyTest> serviceImpl = 
         new (std::nothrow) OHOS::HDI::Mytest::V1_0::MyTestImpl();
         
@@ -53,7 +52,7 @@ static int HdfMyTestDriverBind(struct HdfDeviceObject *deviceObject)
         return HDF_FAILURE;
     }
 
-    // 🚨 同上：全路径调用 GetDescriptor()
+    
     hdfMyTestHost->stub = OHOS::HDI::ObjectCollector::GetInstance().GetOrNewObject(
         serviceImpl, 
         OHOS::HDI::Mytest::V1_0::IMyTest::GetDescriptor()
